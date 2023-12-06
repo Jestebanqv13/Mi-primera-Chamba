@@ -4,6 +4,18 @@ from tkinter import messagebox, simpledialog
 from tabulate import tabulate
 import base64
 from PIL import Image, ImageTk
+import mysql.connector
+
+conexion = mysql.connector.connect(
+        host='compu-esteban',
+        user='root',
+        password='130805',
+        database='BASE_DE_DATOS'
+    )
+
+
+
+
 
 class ListaDeTareas:
     def __init__(self):
@@ -14,6 +26,7 @@ class ListaDeTareas:
 
     def agregar_tarea(self, tarea):
         self.tareas.append({"tarea": tarea, "completa": False})
+      
 
     def eliminar_tarea(self, tarea):
         self.tareas = [t for t in self.tareas if t["tarea"] != tarea]
